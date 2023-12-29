@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+.activity-item:before {
+	content: "";
+	width: 16px;
+	height: 16px;
+	float: left;
+	background: url('../images/fugue-sprite.png') no-repeat;
+	background-position: -224px -160px;
+	margin: 0 6px 2px 0;
+}
+
+.wp-strava-activity-container {
+	display: table;
+	margin: 0 auto;
+}
+
+.wp-strava-img {
+	width: 100%;
+}
+
+.activity-details-table {
+	padding-bottom: 0.5em;
+}
+
+.activity-details-table tr td {
+	padding: 0.25em;
+}
+
+.activity-details-table th {
+	padding: 0.25em;
+	text-align: center;
+	font-size: 0.8em;
+}
+
+.activity-details-table td:before {
+	position: relative;
+}
+
+.activity-details-table td {
+	text-align: center;
+	border: 1px solid #e7e7e7;
+}
+
+.activity-details-table-info {
+	font-size: 1.2em;
+	font-weight: bold;
+	text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.4);
+}
+
+.activity-details-table-units {
+	font-size: 0.8em;
+}
+
+/* Responsive Tables */
+@media
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	/* Force table to not be like tables anymore */
+	.activity-details-table table, thead, tbody, th, td, tr {
+		display: block;
+	}
+
+	/* Hide table headers (but not display: none;, for accessibility) */
+	.activity-details-table thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+
+	.activity-details-table td {
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #e7e7e7;
+		position: relative;
+		padding-left: 50%;
+	}
+
+	.activity-details-table td:before {
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 5px;
+		left: 5px;
+		width: 45%;
+		padding-right: 10px;
+		white-space: nowrap;
+		content: attr(data-label);
+	}
+
+	.activity-details-table td {
+		text-align: right;
+	}
+
+	.activity-details-table-info, .activity-details-table-units {
+		display: inline;
+	}
+}
